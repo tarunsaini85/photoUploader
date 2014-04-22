@@ -1,0 +1,8 @@
+.lbWrap{background:#FFF; position:relative}
+.lbWrap .closeBtn{background:url(../img/imsIcns1.png);position:absolute;width:25px;height:25px; top:6px; right:5px}
+.layer{position:absolute;top:0;left:0;background:#000;width:100%;left:0;filter:Alpha(opacity=60);opacity:0.6;z-index:1000;height:100%}
+.ifrm{border:none;width:100%;filter:Alpha(opacity=0);opacity:0;position:absolute;top:0;left:0;z-index:99}
+.viewout1{left : -5000px;position:absolute}
+
+
+

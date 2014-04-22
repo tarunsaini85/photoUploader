@@ -1,0 +1,27 @@
+.oh{overflow:hidden}
+.lbCntWrap_ims .pqupFrmCnt .roundCont{width:25px; height:25px; display:block; margin:20px 0 20px 85px; background:#F9F9F9; border:1px solid #D8D8D8; border-radius:50%; line-height:25px; text-align:center; font-size:10px; color:#666}
+.captBtn{width:200px}
+.hBar{z-index:1001; position:relative}
+.dLayer{width:715px; margin:0 auto; background:#fff; border-radius:0 0 10px 10px; border:1px solid #c7c7c7; box-shadow: 0 3px 5px 2px #dcdcdc; position:absolute; left:50%; margin-left:-400px; margin-top:-250px; z-index:1000; padding:50px;}
+.bLayer{width:100%; height:100%; position:fixed; z-index:999; background:#fff; opacity:0.9; display:none}
+.lftBloc, .rgtBloc{width:310px; height:90px; background:#EEE; float:left; border-radius:5px; box-shadow:0 2px 5px 0px #ddd; padding:10px; font-size:18px; color:#777; text-shadow:1px 1px 1px #aaa; text-align:center; border:1px solid #ddd}
+.rgtBloc{margin-left:50px}
+.pIcn, .cIcn{}
+.lftBloc span, .rgtBloc span{display:block; margin:15px 0}
+.mt20{margin:20px 0 0}
+
+
+
+.clsDL{height:20px; width:20px; display:block; position:absolute; right:0; margin:-45px 3px 0 0} 
+.clsDL{border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px; border:2px solid #333; width:14px; height:13px}
+.clsDL:before, .clsDL:after{content:''; height:2px; width:10px; display:block; background:#333; border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px; position:absolute; top:6px; left:2px; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg)}
+.clsDL:after{transform:rotate(45deg);-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg)}
+
+
+#sec2{display:none; padding:0 40px}
+#sec2 video,#sec2 img{width:307px}
+#sec2 video{transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg)}
+
+.vidWrap{width:220px; overflow:hidden; float:left; text-align:center; font-size:11px; display:none}
+.savLink,.canLink{color:#fff !important; font-size:14px; margin:20px 0 0; display:inline-block; float:right; background:#09F; border-radius:5px; padding:3px 15px}
+.canLink{float:left}

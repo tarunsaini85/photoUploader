@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+<script type="text/javascript" src="js/naukri_framework_v1.3.min.js"></script>
+<script type="text/javascript" src="js/ImageCropper1.min.js"></script>
+<script type="text/javascript" src="js/photoUploader.min.js"></script>
+<script type="text/javascript" src="js/ncUploader.js"></script>
+<script type="text/javascript" src="js/lightBox.min.js"></script>
+<script type="text/javascript" src="js/clickPhoto.js"></script>
+<link rel="stylesheet" type="text/css" href="css/pqupForm.css">
+<link rel="stylesheet" type="text/css" href="css/lightBox.css">
+<link rel="stylesheet" type="text/css" href="css/t1.css">
+</head>
+
+<body>
+<a href="javascript:;" id="phCh">Click</a>
+
+<!-- =================== your photo cropper section start from here ======================== -->
+<div id="ltBoxcontainer" class="lbWrap" style="display:none">
+<a id="container_close" class="closeBtn" href="javascript:void(0)"></a>
+<!-- photocropper section -->
+<div id="lbCntnt" class="lbCntWrap_ims">
+<img src="" id="actualImageCropper" alt="pic"  />
+<h2>Upload your latest photo</h2>
+<div class="pqupFrmCnt">
+  <div id="uplPhoto_Upload">
+    <div class="pHding">A Naukri profile with photo has 40% higher chances of getting noticed by employers.</div>
+    <form id="pqupfrmI" name="pqupfrmN" action="#" method="get">
+      <div class="row">
+        <div class="rowL"><img src="img/male.jpg" width="166" height="188"/></div>
+        <div class="rowR" id="fileCont">
+          <div>
+            <input id="uplPhoto" name="Fjb56fnotys359[tarun1]" type="file"/>
+          </div>
+          <i id="uplPhotoErr" class="err" style="display:none">Error</i>
+          <div class="preLod" id="uplPhoto_Loader" style="display:none">Uploading your file. Please wait...</div>
+          <p class="txt1">Supported file format : <strong>png, jpg, jpeg, gif</strong> - upto <strong>1MB</strong></p>
+          <p>Uploading a new photo will replace the existing photograph.</p>
+          <em class="roundCont">OR</em>
+          <button type="button" id="capture" class="imsLBBtn1 captBtn">Click a Photo Now!</button>
+        </div>
+      </div>
+      <div>By uploading your photograph, you certify that naukri.com has the right to display this photograph to the recruiters and that the uploaded file does not violate our <a target="_blank" href="#">Terms of Service</a>.</div>
+      <div class="skpTxt"><a id="pqup_skip" href="javascript:" class="skipLnk">Skip and continue to apply</a></div>
+    </form>
+  </div>
+</div>
+<div id="uplPhoto_Crop" style="display:none">
+  <div class="jd_apply">
+    <div class="lbMid jd_inner">
+      <div class="photoUpload">
+        <div class="photoSec">
+        <!-- first big thumb image -->
+        <span class="photoFrameOuter"><span class="photoFrame" style="width:146px;height:171px;">
+        <img src="" class="photoFrameClass" alt="pic" style="width:496px; height:auto; padding:0;" />
+        </span></span>
+        <!-- thumb image -->
+        <span class="photoFrameOuter" style="width:66px;height:66px; margin-top:5px; margin-left:0px;border:none">
+        <span class="photoFrame" style="width:65px;height:65px;border-radius:50%">
+        <img src="" class="photoFrameClass" alt="pic" style=" height:auto; padding:0;" />
+        </span></span>
+        <span class="photoFrameOuter" style="width:61px;height:61px; margin-top:5px; margin-left:5px;border:none">
+        <span class="photoFrame " style="width:60px;height:60px;border-radius:5px">
+        <img src="" class="photoFrameClass" alt="pic" style=" height:auto; padding:0;" />
+        </span></span>
+        </div>
+        <div class="cropSec" id="photoUploadCropArea">
+        <div class="cropSecImg" id="imageContainer">
+        <img id="uploadedPhotoUrlFromDisk" src="" style="max-width:400px; max-height:400px" alt="pic" />
+        </div>
+        </div>
+      </div>
+    </div>
+    <p class="cropFoot"><a class="fL" href="javascript:;" onclick="photoUpload.uploadDiff();"> Upload different photo </a><a href="javascript:;" class="fR" id="cancel"> Cancel </a>
+      <input type="submit" name="sbmt" id="submit" class="fR phUpBluBtn" value="Save Photo">
+      <img class="fR savLodr" id="saveLoader" src="img/loaderS.gif" /></p>
+  </div>
+</div>
+<!--Click Photo-->
+<div id="sec2" class="cle mt5" style="display: none;">
+  <div class="vidWrap" id="vidSec" style="display: none;">
+    <video autoplay="" style="margin-left:-76px" src=""></video>
+    <br>
+    Click on the image above to capture your photo or <a id="closDLyr" href="javascript:">cancel</a></div>
+  <div id="imgSec" style="float: right; display: none;"> <img id="capImg" src=""><br>
+    <a class="savLink" id="savImg" href="javascript:">Save Image</a> </div>
+  <canvas style="display:none;" height="480" width="480"></canvas>
+</div>
+<!--/Click Photo-->
+
+</div>
+</div>
+<script type="text/ecmascript">
+
+//Lightbox Calling
+$n('#phCh').addEvent('click',function(){
+lightBox({trigger:"phCh",contId:"ltBoxcontainer",contWidth:700,ecp:true,returnFocus:true,close:'container_close',firstFocus:'container_close',reset:true,hideCallBack:function(){
+	$n('#uplPhoto_Crop').hide();
+	$n('#uplPhoto_Upload').show()
+	}});
+		});
+
+//photo cropper calling
+	photoUpload.initNCUploader({
+		options : { // 
+			/*fltbox:"uplPhoto_Upload",//offset parent of input type file
+			sltbox:"uplPhoto_Crop",//offset parent of images / cropper images
+			loader:"uplPhoto_Loader",//temporary loader info container id
+			errObj:"uplPhotoErr",//any error container id
+			thumbImg:"photoFrameClass",//common class for thumbnail images
+			mainImg:"uploadedPhotoUrlFromDisk",//main images id
+			defImg:"actualImageCropper",//an images as vertual [position:absolute] id
+			mainImgCont:"imageContainer",//container of main images		
+			saveLoader:"saveLoader",//loader images will be appered at the time of saving
+			maxWidth:400,//container maxWidth
+			maxHeight:400,//container max height*/
+			lightBoxId:"container"//lightbox id
+		},
+		appId:114,//unknown need to discussed 			
+		containerId:"fileCont",//wrapper of input type file [required]
+		fileId:"uplPhoto",//id of input type
+		target:"http://ps02.infoedge.com/ncFileUploadService/saveFile.php",//unknown need to discussed
+		extensions:["png","jpg","jpeg","gif"],//img ext			
+		callbackUrl:"/",//response page					
+		//saveUrl:"http://dev1.infoedge.com/manish/dev/photoUpl/index.html?=",//where the imgages cordination will be send
+		imageUrl:"/img",//cropper dot images src			
+		fileKey:"tarun1",// unique key required for nc uploader
+		successCallback:function(obj){
+			console.log(obj);
+			},
+		errorCallback:function(obj){ 
+			console.log(obj);
+			},
+		photoCaptureTriggerId : 'capture'
+		});
+</script>
+</body>
+</html>
